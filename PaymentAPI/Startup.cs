@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using PaymentAPI.Repository;
 
 namespace PaymentAPI
 {
@@ -28,9 +30,16 @@ namespace PaymentAPI
         {
 
             services.AddControllers();
+
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PaymentAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Payment API", Version = "v1" });
+            });
+            services.AddDbContext<Context>(options =>
+            {
+                options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
             });
         }
 
@@ -41,7 +50,11 @@ namespace PaymentAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PaymentAPI v1"));
+                app.UseSwaggerUI(c => 
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "PaymentAPI v1");
+                    c.RoutePrefix = "api-docs";
+                });
             }
 
             app.UseHttpsRedirection();
