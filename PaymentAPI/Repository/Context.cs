@@ -20,8 +20,8 @@ namespace PaymentAPI.Repository
             modelBuilder.ApplyConfiguration(new ProdutoMapping());
             base.OnModelCreating(modelBuilder);
         }
-        DbSet<Venda> Vendas { get; set; }
-        DbSet<Produto> Produtos { get; set; }
-        DbSet<Vendedor> Vendedores { get; set; }
+       public DbSet<Venda> Vendas { get; set; }
+       public  DbSet<Produto> Produtos { get; set; }
+       public DbSet<Vendedor> Vendedores { get; set; }
     }
 }

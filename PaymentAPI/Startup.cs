@@ -13,6 +13,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PaymentAPI.Repository;
+using PaymentAPI.Repository.Interfaces;
+using PaymentAPI.Services;
+using PaymentAPI.Services.Interfaces;
 
 namespace PaymentAPI
 {
@@ -41,6 +44,10 @@ namespace PaymentAPI
             {
                 options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            
+            services.AddScoped<IVendaRepository, VendaRepository>();
+            services.AddScoped<IVendaService, VendaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

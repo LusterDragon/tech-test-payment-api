@@ -12,7 +12,7 @@ namespace PaymentAPI.Models.Entity
         AguardandoPagamento,
         [Description("Pagamento Aprovado")]
         PagamentoAprovado,
-        [Description("Aprovada")]
+        [Description("Cancelada")]
         Cancelada,
         [Description("Enviado para transportadora")]
         EnviadoParaTransportadora,
