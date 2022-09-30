@@ -1,3 +1,4 @@
+
 ## INSTRUÇÕES PARA O TESTE TÉCNICO
 
 - Crie um fork deste projeto (https://gitlab.com/Pottencial/tech-test-payment-api/-/forks/new). É preciso estar logado na sua conta Gitlab;
@@ -33,3 +34,5 @@
 - Boas práticas e princípios como SOLID, DDD (opcional), DRY, KISS;
 - Testes unitários;
 - Uso correto do padrão REST;
+
+###  A rota do Swagger encontra-se na rota: /swagger/index.html

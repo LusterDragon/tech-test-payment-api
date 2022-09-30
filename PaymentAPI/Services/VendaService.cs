@@ -49,6 +49,14 @@ namespace PaymentAPI.Services
             {
                 throw new EmptyProductListException();
             }
+
+            foreach(var produtos in vendaDTO.Produtos)
+            {
+                if (produtos.Quantidade < 1)
+                {
+                    throw new ArgumentException("A quantidade de produtos não pode ser menor ou igual a zero");
+                }
+            }
         }
     }
 }

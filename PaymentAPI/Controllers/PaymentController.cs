@@ -71,10 +71,11 @@ namespace PaymentAPI.Controllers
                 var venda = _vendaService.CreateVenda(vendaDTO);
                 return Ok(venda);
             }
-            catch(EmptyProductListException ex)
+            catch(Exception ex)
             {
                 return BadRequest(ex.Message);
             }
+
         }
     }
 }
